@@ -51,16 +51,51 @@ function getGithubUserDetails(username){
                 userName.innerText=`${username}`;
                 userName.href=`http://github.com/${username}`
 
-                const date=new Date(data['created_at']).toUTCString().slice(3,16)
+                const date=new Date(data['created_at']).toUTCString().slice(3,16);
                 userJoindate.innerText=`Joined at ${date}`;
                 userRepos.innerHTML=`${data.public_repos}`;
                 userFollowing.innerHTML=`${data.following}`;
                 userFollowers.innerHTML=`${data.followers}`;
-                userLocation.innerHTML=`${data.location}`;
-                userEmail.innerHTML=`${data.email}`;
-                userCompany.innerHTML=`${data.company}`;
-                userTwitter.innerHTML=`${data.twitter_username}`;
-                userBio.innerHTML=`${data.bio}`;
+                // userLocation.innerHTML=`${data.location}`;
+                // userEmail.innerHTML=`${data.email}`;
+                // userCompany.innerHTML=`${data.company}`;
+                // userTwitter.innerHTML=`${data.twitter_username}`;
+                // userBio.innerHTML=`${data.bio}`;
+
+                if(data.email==null){
+                    userEmail.style.display="none";
+                }
+                else{
+                    userEmail.innerHTML=`${data.email}`;
+                }
+
+                if(data.company==null){
+                    userCompany.style.display="none";
+                }
+                else{
+                    userCompany.innerHTML=`${data.company}`;
+                }
+
+                if(data.location==null){
+                    userLocation.style.display="none";
+                }
+                else{
+                    userLocation.innerHTML=`${data.location}`;
+                }
+
+                if(data.twitter_username==null){
+                    userTwitter.style.display="none";
+                }
+                else{
+                    userTwitter.innerHTML=`${data.twitter_username}`;
+                }
+
+                if(data.bio==null){
+                    userBio.style.display="none";
+                }
+                else{
+                    userBio.innerHTML=`${data.bio}`;
+                }
             }
         
 
