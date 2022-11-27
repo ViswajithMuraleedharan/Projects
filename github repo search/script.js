@@ -17,6 +17,11 @@ const userCompany=document.querySelector('#company');
 const userTwitter=document.querySelector('#twitter');
 const userBio=document.querySelector('#bio');
 
+const emailpic=document.getElementById("email-pic");
+const companypic=document.getElementById("company-pic");
+const locationpic=document.getElementById("location-pic");
+const twitterpic=document.getElementById("twitter-pic");
+
 const defaultUser='Octocat';
 
 function switchTheme(){
@@ -56,39 +61,12 @@ function getGithubUserDetails(username){
                 userRepos.innerHTML=`${data.public_repos}`;
                 userFollowing.innerHTML=`${data.following}`;
                 userFollowers.innerHTML=`${data.followers}`;
-                // userLocation.innerHTML=`${data.location}`;
-                // userEmail.innerHTML=`${data.email}`;
-                // userCompany.innerHTML=`${data.company}`;
-                // userTwitter.innerHTML=`${data.twitter_username}`;
-                // userBio.innerHTML=`${data.bio}`;
+                userLocation.innerHTML=`${data.location}`;
+                userEmail.innerHTML=`${data.email}`;
+                userCompany.innerHTML=`${data.company}`;
+                userTwitter.innerHTML=`${data.twitter_username}`;
+                userBio.innerHTML=`${data.bio}`;
 
-                if(data.email==null){
-                    userEmail.style.display="none";
-                }
-                else{
-                    userEmail.innerHTML=`${data.email}`;
-                }
-
-                if(data.company==null){
-                    userCompany.style.display="none";
-                }
-                else{
-                    userCompany.innerHTML=`${data.company}`;
-                }
-
-                if(data.location==null){
-                    userLocation.style.display="none";
-                }
-                else{
-                    userLocation.innerHTML=`${data.location}`;
-                }
-
-                if(data.twitter_username==null){
-                    userTwitter.style.display="none";
-                }
-                else{
-                    userTwitter.innerHTML=`${data.twitter_username}`;
-                }
 
                 if(data.bio==null){
                     userBio.style.display="none";
